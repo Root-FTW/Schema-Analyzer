@@ -1,28 +1,14 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "schema-analyzer/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist",
-        "installCommand": "npm install --legacy-peer-deps",
-        "buildCommand": "npm run build"
-      }
-    },
-    {
-      "src": "server.js",
-      "use": "@vercel/node"
-    }
+  "buildCommand": "cd schema-analyzer && npm install --legacy-peer-deps && npm run build",
+  "outputDirectory": "schema-analyzer/dist",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" }
   ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "schema-analyzer/dist/$1"
+  "functions": {
+    "api/index.js": {
+      "memory": 1024,
+      "maxDuration": 10
     }
-  ]
+  }
 }
