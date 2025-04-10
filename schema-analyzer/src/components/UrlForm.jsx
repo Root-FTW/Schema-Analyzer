@@ -32,10 +32,10 @@ const UrlForm = ({ onAnalyze }) => {
   ];
 
   return (
-    <div className="form-container fade-in">
-      <Form onSubmit={handleSubmit}>
-        <Row className="mb-3">
-          <Col md={8}>
+    <div className="form-container fade-in w-100">
+      <Form onSubmit={handleSubmit} className="w-100">
+        <Row className="mb-3 w-100 mx-0">
+          <Col md={8} className="px-md-2 px-1">
             <Form.Group controlId="url">
               <Form.Label>URL to analyze</Form.Label>
               <Form.Control
@@ -44,17 +44,17 @@ const UrlForm = ({ onAnalyze }) => {
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 required
-                className="input-modern"
+                className="input-modern w-100"
               />
             </Form.Group>
           </Col>
-          <Col md={4}>
+          <Col md={4} className="px-md-2 px-1">
             <Form.Group controlId="schemaType">
               <Form.Label>Schema Type</Form.Label>
               <Form.Select
                 value={schemaType}
                 onChange={(e) => setSchemaType(e.target.value)}
-                className="select-modern"
+                className="select-modern w-100"
               >
                 {schemaTypes.map((type) => (
                   <option key={type} value={type}>

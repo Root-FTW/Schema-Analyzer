@@ -56,7 +56,7 @@ function App() {
   return (
     <div className={`app-container ${theme}`}>
       <Navbar bg={theme} variant={theme} expand="lg" className="navbar-modern">
-        <Container>
+        <Container fluid className="px-4">
           <Navbar.Brand className="brand">Schema.org Analyzer</Navbar.Brand>
           <div className="theme-toggle">
             <button
@@ -70,7 +70,7 @@ function App() {
         </Container>
       </Navbar>
 
-      <Container className="mt-4 main-content">
+      <Container fluid className="mt-4 main-content px-4">
         <h1 className="app-title">Schema.org Analyzer</h1>
         <p className="app-description">
           Enter a URL and select the Schema.org type you expect to find.
@@ -100,7 +100,7 @@ function App() {
       </Container>
 
       <footer className="app-footer">
-        <Container>
+        <Container fluid className="px-4">
           <p>© {new Date().getFullYear()} Schema.org Analyzer - Tool for analyzing and validating Schema.org implementations</p>
         </Container>
       </footer>

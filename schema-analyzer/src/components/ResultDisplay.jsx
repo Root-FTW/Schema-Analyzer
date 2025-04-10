@@ -76,7 +76,7 @@ const ResultDisplay = ({ analysisResult }) => {
   };
 
   return (
-    <div className="result-container fade-in">
+    <div className="result-container fade-in w-100">
       <div className="result-header">
         <h4 className="result-title">Results for: {url}</h4>
         <p className="result-subtitle">
