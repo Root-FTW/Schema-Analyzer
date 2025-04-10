@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "cd schema-analyzer && npm install && npm run build",
+    "build": "cd schema-analyzer && npm install --legacy-peer-deps && npm run build",
     "dev": "concurrently \"node server.js\" \"cd schema-analyzer && npm run dev\""
   },
   "dependencies": {
