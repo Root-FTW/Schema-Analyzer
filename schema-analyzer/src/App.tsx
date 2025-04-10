@@ -10,14 +10,20 @@ import ResultDisplay from './components/ResultDisplay'
 // Servicios
 import { extractSchemaFromUrl } from './services/schemaService'
 
+// Definición de tipos
+interface AnalyzeParams {
+  url: string;
+  schemaType: string;
+}
+
 function App() {
-  const [schemaData, setSchemaData] = useState(null)
+  const [schemaData, setSchemaData] = useState<any[]>([])
   const [url, setUrl] = useState('')
   const [schemaType, setSchemaType] = useState('')
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
-  const handleAnalyze = async ({ url, schemaType }) => {
+  const handleAnalyze = async ({ url, schemaType }: AnalyzeParams) => {
     setLoading(true)
     setError(null)
     setUrl(url)
@@ -29,9 +35,9 @@ function App() {
       if (data.length === 0) {
         setError('No se encontraron datos de Schema.org en la URL proporcionada')
       }
-    } catch (err) {
-      setError(`Error: ${err.message}`)
-      setSchemaData(null)
+    } catch (err: any) {
+      setError(`Error: ${err.message || 'Desconocido'}`)
+      setSchemaData([])
     } finally {
       setLoading(false)
     }
