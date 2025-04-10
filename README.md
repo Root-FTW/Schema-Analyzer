@@ -16,22 +16,45 @@ Una herramienta para analizar y validar implementaciones de Schema.org en sitios
 - Vite
 - Bootstrap
 - React Syntax Highlighter
+- Express (para el servidor proxy)
 
-## Instalación
+## Instalación Local
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/Root-FTW/schema-analyzer.git
+git clone https://github.com/Root-FTW/Schema-Analyzer.git
 
 # Entrar al directorio
-cd schema-analyzer
+cd Schema-Analyzer
 
-# Instalar dependencias
+# Instalar dependencias del frontend
+cd schema-analyzer
 npm install
 
-# Iniciar el servidor de desarrollo
+# Volver al directorio raíz e instalar dependencias del servidor
+cd ..
+npm install express cors axios
+
+# Iniciar el servidor proxy
+node server.js
+
+# En otra terminal, iniciar el frontend
+cd schema-analyzer
 npm run dev
 ```
+
+## Despliegue en Vercel
+
+1. Haz fork o clona este repositorio en tu cuenta de GitHub
+2. Inicia sesión en [Vercel](https://vercel.com)
+3. Haz clic en "New Project"
+4. Importa tu repositorio de GitHub
+5. Configura el proyecto:
+   - Framework Preset: Vite
+   - Root Directory: ./
+   - Build Command: cd schema-analyzer && npm install && npm run build
+   - Output Directory: schema-analyzer/dist
+6. Haz clic en "Deploy"
 
 ## Uso
 
